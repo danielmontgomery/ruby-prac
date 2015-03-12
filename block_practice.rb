@@ -5,7 +5,7 @@
 # * Output all the methods of the Enumerable class to the console
 
 
-
+puts Enumerable.methods
 
 
 
@@ -17,16 +17,60 @@
 
 
 
+class Persons
+
+	def self.each(*people)
+		people.each{|person| puts "#{person}"}
+	end
+
+	# you can also define names as
+	@names = ["Donald", "Mickey", "Mouse", "Aaron", "Alicia", "Mark", "Bob", "Zach Danger Brown"]
+	def self.name_method
+		puts "============================"
+		puts "here's your names:"
+		puts @names.each {|x| print x, ", " }
+	end
+
+	def self.start_with_a
+		puts "=============="
+		puts "The following names start with 'A':"
+		puts @names.select {|x| x[0] == ?A }
+	end
+
+	def self.is_bob_here
+		puts "=============="
+		puts "Is bob around?"
+		if @names.include?("Bob")
+			puts "Bob is around!"
+		else
+			puts "Bob isn't here"
+		end
+		puts "=============="
+	end
+
+	def self.spaces
+		if @names.include(" ")
+			puts "I'm still working on this one. It should print the name of the person with a space or two in their name."
+		end
+		puts "=============="
+	end
+end
+puts "==============  Starting output  =============="
+Persons.each "Joe", "Jim", "Jack", "John", "Randy", "Whatever name you want"
+
+
+Persons.name_method
 
 
 
 
+ 
 
 # **TODO ENTER CODE**
 # * Find a name starting with 'a', you will need to include the Enumerable module into Persons, make sure you have a name
 #   starting with 'a'
 
-
+Persons.start_with_a
 
 
 
@@ -35,7 +79,7 @@
 # * Check if 'bob' is included in your names
 
 
-
+Persons.is_bob_here
 
 
 # **TODO ENTER CODE**
@@ -44,7 +88,7 @@
 
 
 
-
+Persons.spaces
 
 
 
